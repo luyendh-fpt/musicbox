@@ -95,9 +95,13 @@ namespace MusicBox.View
             SelectedSong = (Song)((StackPanel)sender).Tag;
             if (SelectedSong != null)
             {
-                Uri newuri = new Uri(SelectedSong.Description);
+                Uri newuri = new Uri(SelectedSong.Link);
                 this.MyPlayer.Source = newuri;
+                Rectangle1.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(SelectedSong.Thumbnail));
+
+
                 this.SongDetail.Visibility = Visibility.Visible;
+
             }
 
         }
