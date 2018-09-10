@@ -100,6 +100,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\DataAccess.cs" />
     <Compile Include="Model\SongModel.cs" />
     <Compile Include="View\ListSong.xaml.cs">
       <DependentUpon>ListSong.xaml</DependentUpon>
@@ -145,6 +146,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite">
+      <Version>1.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.4</Version>
     </PackageReference>
