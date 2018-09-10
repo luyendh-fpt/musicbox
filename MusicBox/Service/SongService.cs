@@ -21,57 +21,33 @@ namespace MusicBox.Service
                 Songs.Add(new Song
                 {
                     Id = 1,
-                    Title = "Me Muoi",
-                    Author = "KV",
-                    Singer = "Tram",
-                    Description = "https://c1-ex-swe.nixcdn.com/NhacCuaTui967/MeMuoi-BuiLanHuong-5574358.mp3",
-                    Kind = "nhac tre"
+                    Title = "Giấc mơ chỉ là giấc mơ",
+                    Thumbnail = "http://lyric.tkaraoke.com/24714/giac_mo_chi_la_giac_mo.gif",
+                    Author = "Đức Trí",
+                    Singer = "Hà Anh Tuấn",
+                    Link = "https://c1-ex-swe.nixcdn.com/NhacCuaTui945/GiacMoChiLaGiacMoSeeSingShare2-HaAnhTuan-5082049.mp3",
+                    Kind = "Nhạc Trẻ"
                 });
                 Songs.Add(new Song
                 {
                     Id = 2,
-                    Title = "Mot Hai Ba Bon",
-                    Author = "KV",
-                    Singer = "Tram",
-                    Description = "http://focusteam-api.tk/music/1234%20-%20Chi%20Dan.mp3",
-                    Kind = "nhac tre"
+                    Title = "Người tình mùa đông",
+                    Thumbnail = "http://khuyennhac.net/wp-content/uploads/2016/06/Nguoi-tinh-mua-dong.png",
+                    Author = "Anh Bằng",
+                    Singer = "Hà Anh Tuấn",
+                    Link = "https://c1-ex-swe.nixcdn.com/NhacCuaTui963/NguoiTinhMuaDongSEESINGSHARE2-HaAnhTuan-5104816.mp3",
+                    Kind = "Nhạc Trẻ"
                 });
                 Songs.Add(new Song
                 {
                     Id = 3,
-                    Title = "Em Gai Mua 3",
-                    Author = "KV",
-                    Singer = "Tram",
-                    Description = "Hay",
-                    Kind = "nhac tre"
-                });
-                Songs.Add(new Song
-                {
-                    Id = 4,
-                    Title = "Em Gai Mua 4",
-                    Author = "KV",
-                    Singer = "Tram",
-                    Description = "Hay",
-                    Kind = "nhac tre"
-                });
-                Songs.Add(new Song
-                {
-                    Id = 5,
-                    Title = "Em Gai Mua 5",
-                    Author = "KV",
-                    Singer = "Tram",
-                    Description = "Hay",
-                    Kind = "nhac tre"
-                });
-                Songs.Add(new Song
-                {
-                    Id = 6,
-                    Title = "Em Gai Mua 6",
-                    Author = "KV",
-                    Singer = "Tram",
-                    Description = "Hay",
-                    Kind = "nhac tre"
-                });
+                    Title = "Nơi ấy bình yên",
+                    Thumbnail = "https://3.bp.blogspot.com/-9Qn0gEJqseA/V0ZOOqZFDgI/AAAAAAAAMog/AdZm-YzBHFEBS_yNCp1kTievslN4--n6gCLcB/s1600/NOI%2BAY%2BBINH%2BYEN-Bao%2BChan%2BAm.jpg",
+                    Author = "Bảo Chấn",
+                    Singer = "Hà Anh Tuấn",
+                    Link = "https://c1-ex-swe.nixcdn.com/NhacCuaTui946/NoiAyBinhYenSeeSingShare2-HaAnhTuan-5085337.mp3",
+                    Kind = "Nhạc Trẻ"
+                });             
             }
         }
 

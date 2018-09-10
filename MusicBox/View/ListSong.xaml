@@ -12,11 +12,6 @@
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
-                <ComboBox 
-                    PlaceholderText="Page" 
-                    ItemsSource="{x:Bind MetaItems.ListPage, Mode=TwoWay}" 
-                    SelectionChanged="Kind_OnSelectionChanged"/>
-                
                 <ListView x:Name="MenuList"
                           ItemsSource="{x:Bind Songs, Mode=TwoWay}">
                     <ListView.ItemTemplate>
@@ -27,10 +22,10 @@
                                 Tag="{Binding}"
                                 Tapped="UIElement_OnTapped"
                                 AutomationProperties.Name="{x:Bind Title}">
-                                <Image Source="http://via.placeholder.com/100x100"
+                                <Image Source="{x:Bind Thumbnail}"
                                        Height="50" Width="50" VerticalAlignment="Center"/>
                                 <TextBlock Text="{x:Bind Title}" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}" Margin="12,0,0,0"/>
-                               
+                   
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

@@ -14,5 +14,11 @@ namespace MusicBox.Entity
         public string Author { get; set; }
         public string Kind { get; set; }
         public string Singer { get; set; }
+
+        public string Link { get => link; set => link = value; }
+        public string Thumbnail { get => thumbnail; set => thumbnail = value; }
+
+        private string link;
+        private string thumbnail;
     }
 }
