@@ -25,12 +25,12 @@
                                 <Image Source="{x:Bind Thumbnail}"
                                        Height="50" Width="50" VerticalAlignment="Center"/>
                                 <TextBlock Text="{x:Bind Title}" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}" Margin="12,0,0,0"/>
-                   
+
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button x:Name="BtnCreate" Height="Auto" Width="60" Click="ShowSongForm">Create Song</Button>  
+                <Button x:Name="BtnCreate" Height="Auto" Width="120" Click="ShowSongForm" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0">Create Song</Button>
             </StackPanel>
 
             <RelativePanel x:Name="SongDetail" Visibility="Collapsed" Margin="25,100,0,0">
@@ -42,9 +42,9 @@
                     <Button Margin="250,2,0,0" Height="Auto" Width="60">Sửa</Button>
                     <Button Margin="250,2,0,0" Height="Auto" Width=" 60">Xóa</Button>
                     <Button Margin="250,2,0,0" Height="Auto" Width=" 60" Click="DownLoadBtn_OnClick" x:Name="DownLoadBtn">Tải</Button>
-                    <MediaElement x:Name="MyPlayer" AutoPlay="True" />
+                    <MediaElement x:Name="MyPlayer" />
                 </StackPanel>
-                
+
             </RelativePanel>
 
 

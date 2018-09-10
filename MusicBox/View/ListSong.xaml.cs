@@ -33,6 +33,8 @@ namespace MusicBox.View
         private ObservableCollection<Song> _songs;
         private Song _selectedSong = null;
         private MetaData _meta;
+        private bool isPlaying = false;
+
         public MetaData MetaItems { get; set; }
         public ObservableCollection<Song> Songs
         {
@@ -146,6 +148,26 @@ namespace MusicBox.View
         private void ShowSongForm(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof (View.SongForm));
+        }
+
+        private void playSong()
+        {
+            MyPlayer.Play();
+            isPlaying = true;
+        }
+
+        private void pauseSong()
+        {
+            MyPlayer.Pause();
+            isPlaying = false;
+        }
+
+        private void resumeSong()
+        {
+            if (!isPlaying)
+            {
+                playSong();
+            }
         }
     }
 }
