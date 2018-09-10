@@ -65,6 +65,31 @@
                 </Grid>
             </PivotItem>
         </Pivot>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Background="#FFDEDEDE" Height="25" Margin="0,0,0,44">
+            <TextBlock>
+                Now Playing:
+            </TextBlock>
+            <TextBlock x:Name="nowPlaying" Margin="10,0,0,0">
+                ...
+            </TextBlock>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Background="#FFDEDEDE" Height="45">
+            <AppBarSeparator/>
+            <ProgressBar x:Name="Progress" Height="15" Width="320"></ProgressBar>
+            <AppBarSeparator/>
+            <AppBarButton Icon="Previous" Click="playBack" ToolTipService.ToolTip="Previous Song"/>
+            <AppBarButton x:Name="PlayButton" Icon="Play" Click="Play_Click" ToolTipService.ToolTip="Play/Pause Song" />
+            <AppBarButton Icon="Next" Click="playNext" ToolTipService.ToolTip="Next Song"/>
+            <AppBarSeparator/>
+            <Slider x:Name="volumeSlider" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Height="36" ValueChanged="volumeSlider_ValueChanged" ToolTipService.ToolTip="Volume"/>
+            <TextBlock x:Name="volume" Width="28" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" TextAlignment="Right">
+                100
+            </TextBlock>
+            <TextBlock Width="15" Height="20">
+                %
+            </TextBlock>
+            <AppBarSeparator/>
+        </StackPanel>
         <MediaElement Width="600" x:Name="MediaPlayer">
         </MediaElement>
     </Grid>

@@ -1,10 +1,14 @@
 ﻿using Microsoft.Data.Sqlite;
+using MusicBox.Entity;
+using SQLite.Net;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace MusicBox.Model
 {
@@ -12,7 +16,8 @@ namespace MusicBox.Model
     {
         private static ObservableCollection<Entity.Song> listSong;
 
-        private static void InitSongs() {
+        private static void InitSongs()
+        {
             listSong.Add(new Entity.Song
             {
                 Id = 1,
@@ -45,42 +50,46 @@ namespace MusicBox.Model
             });
         }
 
-        public static ObservableCollection<Entity.Song> GetSongs() {
+        public static ObservableCollection<Entity.Song> GetSongs()
+        {
             DataAccess.InitializeDatabase();
 
-            if (listSong == null) {
-                listSong = new ObservableCollection<Entity.Song>();
-                
-            }
-            using (SqliteConnection db = new SqliteConnection("Filename=songs_manager.db"))
-            {
-                db.Open();
-
-                SqliteCommand selectCommand = new SqliteCommand();
-                selectCommand.Connection = db;
-                selectCommand.CommandText = "SELECT * FROM songs";
-                SqliteDataReader sqliteData = selectCommand.ExecuteReader();
-                Entity.Song song;
-                while (sqliteData.Read())
-                {
-                    song = new Entity.Song {
-                        Id = Convert.ToInt16(sqliteData["id"]),
-                        Title = Convert.ToString(sqliteData["title"]),
-                        Description = Convert.ToString(sqliteData["description"]),
-                        Author = Convert.ToString(sqliteData["author"]),
-                        Kind = Convert.ToString(sqliteData["kind"]),
-                        Link = Convert.ToString(sqliteData["link"]),
-                        Singer = Convert.ToString(sqliteData["singer"]),
-                        Thumbnail = Convert.ToString(sqliteData["thumbnail"]),
-                    };
-                    listSong.Add(song);
-                }              
-                db.Close();
-            }
             if (listSong == null)
             {
                 listSong = new ObservableCollection<Entity.Song>();
+
             }
+            //using (SqliteConnection db = new SqliteConnection("Filename=songs_manager.db"))
+            //{
+            //    db.Open();
+
+            //    SqliteCommand selectCommand = new SqliteCommand();
+            //    selectCommand.Connection = db;
+            //    selectCommand.CommandText = "SELECT * FROM songs";
+            //    SqliteDataReader sqliteData = selectCommand.ExecuteReader();
+            //    Entity.Song song;
+            //    while (sqliteData.Read())
+            //    {
+            //        song = new Entity.Song
+            //        {
+            //            Id = Convert.ToInt16(sqliteData["id"]),
+            //            Title = Convert.ToString(sqliteData["title"]),
+            //            Description = Convert.ToString(sqliteData["description"]),
+            //            Author = Convert.ToString(sqliteData["author"]),
+            //            Kind = Convert.ToString(sqliteData["kind"]),
+            //            Link = Convert.ToString(sqliteData["link"]),
+            //            Singer = Convert.ToString(sqliteData["singer"]),
+            //            Thumbnail = Convert.ToString(sqliteData["thumbnail"]),
+            //        };
+            //        listSong.Add(song);
+            //    }
+            //    db.Close();
+            //}
+            //if (listSong == null)
+            //{
+            //    listSong = new ObservableCollection<Entity.Song>();
+            //}
+            InitSongs();
             return listSong;
         }
 
@@ -92,7 +101,7 @@ namespace MusicBox.Model
         public static void AddSong(Entity.Song song)
         {
             DataAccess.InitializeDatabase();
-            using (SqliteConnection db =new SqliteConnection("Filename=songs_manager.db"))
+            using (SqliteConnection db = new SqliteConnection("Filename=songs_manager.db"))
             {
                 db.Open();
 
@@ -111,13 +120,32 @@ namespace MusicBox.Model
 
                 insertCommand.ExecuteReader();
 
-                        db.Close();
-                    }
+                db.Close();
+            }
             if (listSong == null)
             {
                 listSong = new ObservableCollection<Entity.Song>();
             }
             listSong.Add(song);
         }
+        public static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "SongsManager.sqlite"));
+        public static void AddSongV2(Song song)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), DB_PATH))
+            {
+                db.Insert(song);
+            } 
+
+        }
+
+        public static ObservableCollection<Song> ReadAllSong()
+        {
+            using (SQLiteConnection db = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), DB_PATH))
+            {
+                return new ObservableCollection<Song>(db.Table<Song>());
+            }
+        }
+
+
     }
 }
