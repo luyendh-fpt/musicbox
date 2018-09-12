@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace MusicBox.Entity
 {
+
+
     public class Song
     {
+        [SQLite.Net.Attributes.PrimaryKey, SQLite.Net.Attributes.AutoIncrement]  
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

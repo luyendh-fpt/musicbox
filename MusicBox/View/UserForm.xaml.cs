@@ -34,6 +34,14 @@ namespace MusicBox.View
     /// </summary>
     public sealed partial class UserForm : Page, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public UserForm()
         {
             FormUser = new User();
@@ -47,27 +55,7 @@ namespace MusicBox.View
         };
 
         private User _formUser;
-
-        public User FormUser
-        {
-            get => _formUser;
-            set
-            {
-                if (_formUser != value)
-                {
-                    _formUser = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public User FormUser {get => _formUser; set { if (_formUser != value) { _formUser = value; OnPropertyChanged(); } } }
 
         private void Birthday_OnDateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
         {
