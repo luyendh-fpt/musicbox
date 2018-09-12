@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Entity\MetaData.cs" />
     <Compile Include="Entity\Song.cs" />
+    <Compile Include="Entity\User.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
