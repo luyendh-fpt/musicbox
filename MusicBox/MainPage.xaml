@@ -64,6 +64,11 @@
                     </RelativePanel>
                 </Grid>
             </PivotItem>
+            <PivotItem Header="User">
+                <Frame x:Name="User">
+
+                </Frame>
+            </PivotItem>
         </Pivot>
         <MediaElement Width="600" x:Name="MediaPlayer">
         </MediaElement>
