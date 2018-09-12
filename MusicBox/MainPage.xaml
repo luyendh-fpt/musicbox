@@ -21,7 +21,7 @@
                     <AppBarButton Icon="Add"/>
                     <AppBarSeparator/>
                     <AppBarButton Icon="Edit" />
-                    <AppBarButton Icon="Delete"/>
+                    <AppBarButton Icon="Delete" Click="BtnSelect_Click"/>
                     <AppBarSeparator/>
                     <AppBarButton Icon="Save" Click="SaveSong"/>
                 </CommandBar>
@@ -51,6 +51,7 @@
                 <Grid Background="White">
                     <RelativePanel>
                         <StackPanel x:Name="GeneralInformation" Margin="20">
+                            <Image x:Name="ImageView"/>
                             <TextBox x:Name="Title" Header= "Title" Margin="0,24,0,0" MaxLength="320" Width="400" HorizontalAlignment="Left"/>
                             <TextBox x:Name="Description" Header="Description" Margin="0,24,0,0" Width="400" HorizontalAlignment="Left"/>
                             <TextBox x:Name="Author" Header="Author" Margin="0,24,0,0" MaxLength="50" Width="200" HorizontalAlignment="Left"/>
