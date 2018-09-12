@@ -97,20 +97,23 @@ namespace MusicBox.View
                 openPicker.FileTypeFilter.Add(".png");
                 StorageFile file = await openPicker.PickSingleFileAsync();
 
-                // Ẩn nội dung trong nút và hiển thị progress ring
-                this.AvatarBtnContent.Visibility = Visibility.Collapsed;
-                this.AvatarPreview.Visibility = Visibility.Collapsed;
-                this.UploadImgProgress.Visibility = Visibility.Visible;
+                if (file != null)
+                {
+                    // Ẩn nội dung trong nút và hiển thị progress ring
+                    this.AvatarBtnContent.Visibility = Visibility.Collapsed;
+                    this.AvatarPreview.Visibility = Visibility.Collapsed;
+                    this.UploadImgProgress.Visibility = Visibility.Visible;
 
-                this.FormUser.Avatar = await this.HttpUploadFile(await uploadUrl, "myFile", "image/png", file);
-                BitmapImage img = new BitmapImage(new Uri(this.FormUser.Avatar));
+                    this.FormUser.Avatar = await this.HttpUploadFile(await uploadUrl, "myFile", "image/png", file);
+                    BitmapImage img = new BitmapImage(new Uri(this.FormUser.Avatar));
 
-                // Hiển thị ảnh demo ở trong nút, ẩn progress ring.
-                this.AvatarPreview.Source = img;
-                this.AvatarPreview.Visibility = Visibility.Visible;
-                this.UploadImgProgress.Visibility = Visibility.Collapsed;
+                    // Hiển thị ảnh demo ở trong nút, ẩn progress ring.
+                    this.AvatarPreview.Source = img;
+                    this.AvatarPreview.Visibility = Visibility.Visible;
+                    this.UploadImgProgress.Visibility = Visibility.Collapsed;
 
-                UWPConsole.BackgroundConsole.WriteLine("Upload Img success!");
+                    UWPConsole.BackgroundConsole.WriteLine("Upload Img success!");
+                }
             }
             catch (Exception exception)
             {
