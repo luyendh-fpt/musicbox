@@ -15,9 +15,6 @@
                          HorizontalAlignment="Left" Text="{x:Bind FormUser.FirstName, Mode=TwoWay}"/>
                 <TextBox Header="LastName" Margin="0,24,0,0" MaxLength="320" Width="400"
                          HorizontalAlignment="Left" Text="{x:Bind FormUser.LastName, Mode=TwoWay}"/>
-                
-                <TextBox Header="Email" Margin="0,24,0,0" MaxLength="50" Width="400"
-                         HorizontalAlignment="Left" Text="{x:Bind FormUser.Email, Mode=TwoWay}"/>
                 <TextBox Header="Phone" Margin="0,24,0,0" MaxLength="50" Width="400"
                          HorizontalAlignment="Left" Text="{x:Bind FormUser.Phone, Mode=TwoWay}"/>
                 <TextBox Header="Address" Margin="0,24,0,0" MaxLength="320" Width="400"
@@ -32,7 +29,8 @@
                               ItemsSource="{x:Bind Genders}"
                               SelectedValuePath="Value"
                               SelectionChanged="OnSelectGender"
-                              DisplayMemberPath="Name" SelectedValue="{x:Bind FormUser.Gender, Mode=TwoWay}"/>
+                              DisplayMemberPath="Name"
+                              SelectedValue="{x:Bind FormUser.Gender, Mode=TwoWay}"/>
                 </RelativePanel>
                 
             </StackPanel>
@@ -47,9 +45,9 @@
                 </Button>
                 <Button Margin="0, 24, 0, 0" 
                         Background="DodgerBlue"
-                        Foreground="White" Click="OnSubmit">
-                    Submit
-                </Button>
+                        Foreground="White" 
+                        Click="OnSubmit"
+                        Content="Submit" />
             </StackPanel>
         </RelativePanel>
     </Grid>

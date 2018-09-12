@@ -104,6 +104,7 @@
     <Compile Include="Model\DataAccess.cs" />
     <Compile Include="Model\SongModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Utility\LowercaseContractResolver.cs" />
     <Compile Include="View\ListSong.xaml.cs">
       <DependentUpon>ListSong.xaml</DependentUpon>
     </Compile>
