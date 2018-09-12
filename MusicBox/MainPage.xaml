@@ -65,7 +65,7 @@
                 </Grid>
             </PivotItem>
             <PivotItem Header="User">
-                <Frame x:Name="User">
+                <Frame x:Name="UserFrame">
 
                 </Frame>
             </PivotItem>
