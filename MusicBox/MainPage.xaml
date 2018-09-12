@@ -64,6 +64,11 @@
                     </RelativePanel>
                 </Grid>
             </PivotItem>
+            <PivotItem Header="User">
+                <Frame x:Name="User">
+
+                </Frame>
+            </PivotItem>
         </Pivot>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Background="#FFDEDEDE" Height="25" Margin="0,0,0,44">
             <TextBlock>

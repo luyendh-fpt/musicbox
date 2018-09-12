@@ -35,6 +35,7 @@ namespace MusicBox
         public MainPage()
         {
             this.InitializeComponent();
+            User.Navigate(typeof(View.UserForm));
             volumeSlider.Value = 100;
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -49,8 +50,8 @@ namespace MusicBox
                 Progress.Minimum = 0;
                 Progress.Maximum = MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
                 Progress.Value = MediaPlayer.Position.TotalSeconds;
-
             }
+        
         }
 
 
